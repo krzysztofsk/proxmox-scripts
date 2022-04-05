@@ -81,6 +81,7 @@ export PATH=/opt/certbot/bin:$PATH
 grep -qo "/opt/certbot" /etc/environment || echo "$PATH" > /etc/environment
 # Install certbot and python dependancies
 runcmd wget -qO - https://bootstrap.pypa.io/get-pip.py | python -
+runcmd pip install --upgrade pip
 if [ "$(getconf LONG_BIT)" = "32" ]; then
   runcmd pip install --no-cache-dir -U cryptography==3.3.2
 fi
